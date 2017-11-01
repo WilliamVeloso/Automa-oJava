@@ -19,7 +19,7 @@ import static config.WebDriverWrapper.getWebDriver;
 public class RunCukesTest {
     @AfterClass
     public static void destruirWebDriver() {
-        getWebDriver().close();
-        getWebDriver().quit();
+        //getWebDriver().close();
+        //getWebDriver().quit();
     }
 }

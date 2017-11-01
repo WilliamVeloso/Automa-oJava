@@ -78,6 +78,12 @@ public class RealizarPedidoPage {
 
     public WebElement getMensagemSistema2() {return mensagemSistema2;}
 
+    public WebElement getBtnProcurar() {return btnProcurar;}
+
+    public WebElement getCampoProcurar() {return campoProcurar;}
+
+    public WebElement getListaRestaurante() {return listaRestaurante;}
+
     public void fecharPedido() throws InterruptedException {
         verRestaurantes.click();
         btnProcurar.click();
@@ -88,6 +94,7 @@ public class RealizarPedidoPage {
         adicionarProduto.click();
         fecharPedido.click();
     }
+
 
     public void setDados() throws InterruptedException {
         name.sendKeys("Rodrigo Soares");

@@ -16,7 +16,7 @@ import static com.jayway.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
-public class realizarPedidosStepDefinitions {
+public class RealizarPedidosSteps {
     @Autowired
     public RealizarPedidoPage page;
 
