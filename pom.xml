@@ -281,6 +281,12 @@
             <artifactId>testng</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>3.4.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

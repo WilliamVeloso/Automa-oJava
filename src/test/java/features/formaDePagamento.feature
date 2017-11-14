@@ -15,5 +15,5 @@ Funcionalidade: Realizar Pedido
 
         Exemplos:
             | Tipo         | Frase                |
-            | Dinheiro     | Pedido Concluído Seu pedido foi recebido pelo restaurante. Prepare sua mesa que a comida está chegando!     |
+            | Dinheiro     | Pedido Conluído  Seu pedido foi recebido pelo restaurante. Prepare a mesa que a comida está chegando!     |
 

@@ -3,7 +3,6 @@ package pageObjects;
 import config.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class RealizarPedidoPage {
     @FindBy(css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(5) > div:nth-child(1) > div > mt-radio > div:nth-child(1) > label > div > ins")
     private WebElement formaPagamento;
 
-    @FindBy(css = "mt-delivery-costs>div>table>tbody>tr).eq(2)")
+    @FindBy(css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(5) > div:nth-child(2) > mt-delivery-costs > div > table > tbody > tr:nth-child(3) > td")
     private WebElement total;
 
     @FindBy(linkText = "Ver Restaurantes")
@@ -47,7 +46,13 @@ public class RealizarPedidoPage {
     private WebElement listaRestaurante;
 
     @FindBy(css = "i[class='fa fa-plus-circle']")
-    private WebElement adicionarProduto;
+    private WebElement adicionarProduto1;
+
+    @FindBy(css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(2) > div > div > a > i")
+    private WebElement adicionarProduto2;
+
+    @FindBy(css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(3) > div > div > a > i")
+    private WebElement adicionarProduto3;
 
     @FindBy(css = "a[class='btn btn-success']")
     private WebElement fecharPedido;
@@ -63,6 +68,72 @@ public class RealizarPedidoPage {
 
     @FindBy (css = "body > mt-app > div > div > div > mt-order-summary > section.content > div > p:nth-child(2)")
     private WebElement mensagemSistema2;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item")
+    private List<WebElement> menu;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-3.col-xs-12 > mt-shopping-cart > div > div.box-body > div > table > tbody > tr")
+    private List<WebElement> verificaCifrao;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(1) > div > div > div.box-body > dl")
+    private List<WebElement> dadosDoEstabelecimento;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(1) > div > span > img")
+    private WebElement imagem1;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(2) > div > span > img")
+    private WebElement imagem2;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(3) > div > span > img")
+    private WebElement imagem3;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(1) > div > div > span.menu-item-info-box-text")
+    private WebElement nomeDoPrato1;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(2) > div > div > span.menu-item-info-box-text")
+    private WebElement nomeDoPrato2;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurant-detail > section.content > div:nth-child(2) > mt-menu > div.col-md-9.col-xs-12 > mt-menu-item:nth-child(3) > div > div > span.menu-item-info-box-text")
+    private WebElement nomeDoPrato3;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(4) > mt-order-items > div")
+    private List<WebElement> subTotal;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(5) > div:nth-child(2) > mt-delivery-costs > div > table > tbody > tr:nth-child(1) > td")
+    private WebElement itens;
+
+    @FindBy (css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(5) > div:nth-child(2) > mt-delivery-costs > div > table > tbody > tr:nth-child(2) > td")
+    private WebElement frete;
+
+    public WebElement getFecharPedido() {return fecharPedido;}
+
+    public WebElement getTotal() {return total;}
+
+    public List<WebElement> getSubTotal() {return subTotal;}
+
+    public WebElement getItens() {return itens;}
+
+    public WebElement getFrete() {return frete;}
+
+    public WebElement getConcluirPedido() {return concluirPedido;}
+
+    public WebElement getImagem1() {return imagem1;}
+
+    public WebElement getImagem2() {return imagem2;}
+
+    public WebElement getImagem3() {return imagem3;}
+
+    public WebElement getnomeDoPrato1() {return nomeDoPrato1;}
+
+    public WebElement getNomeDoPrato2() {return nomeDoPrato2;}
+
+    public WebElement getnomeDoPrato3() {return nomeDoPrato3;}
+
+    public List<WebElement> getDadosDoEstabelecimento() {return dadosDoEstabelecimento;}
+
+    public List<WebElement> getVerificaCifrao() {return verificaCifrao;}
+
+    public List<WebElement> getMenu() {return menu;}
 
     public WebElement verRestaurantes() {
         return verRestaurantes;
@@ -84,6 +155,12 @@ public class RealizarPedidoPage {
 
     public WebElement getListaRestaurante() {return listaRestaurante;}
 
+    public WebElement getAdicionarProduto1() {return adicionarProduto1;}
+
+    public WebElement getAdicionarProduto2() {return adicionarProduto2;}
+
+    public WebElement getAdicionarProduto3() {return adicionarProduto3;}
+
     public void fecharPedido() throws InterruptedException {
         verRestaurantes.click();
         btnProcurar.click();
@@ -91,7 +168,7 @@ public class RealizarPedidoPage {
         Thread.sleep(2000);
         listaRestaurante.click();
         Thread.sleep(2000);
-        adicionarProduto.click();
+        adicionarProduto1.click();
         fecharPedido.click();
     }
 
@@ -104,6 +181,7 @@ public class RealizarPedidoPage {
         numero.sendKeys("271");
         complemento.sendKeys("2B");
 
+
     }
 
     public void selecionarFormaPagamento() throws InterruptedException {
@@ -113,6 +191,12 @@ public class RealizarPedidoPage {
 
     public void concluirPedido() throws InterruptedException {
         concluirPedido.click();
+    }
+
+    public void verificarCifrao() throws InterruptedException {
+        adicionarProduto1.click();
+        adicionarProduto2.click();
+        adicionarProduto3.click();
     }
 
 }

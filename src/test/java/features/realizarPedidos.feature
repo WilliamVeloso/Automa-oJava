@@ -21,15 +21,15 @@ Funcionalidade: Realizar Pedido
             | Campo    | Valor | Mensagem                             |
             | nome     | A     | Campo obrigatório e com 5 caracteres |
             | endereço | Rua   | Campo obrigatório e com 5 caracteres |
-
+    @WEB
     Cenário: Item não preenchido
-        Dado que o usuário fechou o pedido
+        Dado que o usuário realizou seu pedido
         Quando o usuário não preenche um item
         Então não deve ser permitido concluir o pedido
 
+    @WEB
     Cenário: Verificar valores
-        Dado que o usuário fechou o pedido
-        Quando o usuário verifica os valores nos campos subtotal e total
+        Dado que o usuário realizou seu pedido
         Então o campo Total recebe a soma dos itens com o frete (Total = Itens + Frete)
         E Campo Subtotal recebe o valor unitário do produto multiplicado pela quantidade (Subtotal = Valor Unitário * Quantidade)
         E todos valores devem conter R$

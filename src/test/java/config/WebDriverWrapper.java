@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.HasInputDevices;
 import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.internal.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -34,6 +35,8 @@ public class WebDriverWrapper implements WebDriver, JavascriptExecutor,
 
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
+
+
         return webDriver;
     }
 
