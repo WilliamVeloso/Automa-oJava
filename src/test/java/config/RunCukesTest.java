@@ -14,7 +14,8 @@ import static config.WebDriverWrapper.getWebDriver;
         glue = {"stepDefinitions" },
         features = "src/test/java/features",
         snippets = SnippetType.CAMELCASE,
-        strict = true)
+        strict = true,
+        tags = "@wip")
 public class RunCukesTest {
     @AfterClass
     public static void destruirWebDriver() {

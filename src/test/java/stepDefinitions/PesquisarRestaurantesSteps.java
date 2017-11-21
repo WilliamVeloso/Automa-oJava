@@ -1,6 +1,7 @@
 package stepDefinitions;
 
-import config.WebDriverWrapper;
+
+import config.WaitMeWebElementHandler;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
@@ -9,9 +10,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import pageObjects.RealizarPedidoPage;
 import java.util.List;
@@ -26,21 +24,22 @@ public class PesquisarRestaurantesSteps {
 
 
 
+
     @Dado("^que o usuário esteja na pagina de todos os restaurantes$")
     public void queOUsuárioEstejaNaPaginaDeTodosOsRestaurantes() throws Throwable {
-        page.verRestaurantes().click();
+        page.restaurante();
 
     }
 
     @Quando("^o usuário pesquisa um restaurante$")
-    public void oUsuárioPesquisaUmRestaurante() throws Throwable {
-        page.getCampoProcurar().sendKeys("House");
+    public void oUsuarioPesquisaUmRestaurante() throws Throwable {
+        page.btnProcurar();
+
     }
 
     @Então("^o restaurante pesquisado é exibido$")
-    public void oRestaurantePesquisadoÉExibido() throws Throwable {
-        Thread.sleep(1000);
-        page.getListaRestaurante().click();
+    public void oRestaurantePesquisadoEExibido() throws Throwable {
+        page.aguardarElemento(page.getListaRestaurante());
 
     }
 
@@ -98,9 +97,8 @@ public class PesquisarRestaurantesSteps {
 
     @Dado("^que o usuario esteja na pagina do restaurante desejado$")
     public void queOUsuarioEstejaNaPaginaDoRestauranteDesejado() throws Throwable {
-        page.verRestaurantes().click();
-        page.getBtnProcurar().click();
-        page.getCampoProcurar().sendKeys("House");
+        page.restaurante();
+        page.btnProcurar();
         Thread.sleep(2000);
         page.getListaRestaurante().click();
 

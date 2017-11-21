@@ -1,13 +1,26 @@
 package pageObjects;
 
 import config.Page;
+import config.WaitMe;
+import config.WebDriverWrapper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+import static config.WebDriverWrapper.getWebDriver;
+
 @Page
 public class RealizarPedidoPage {
+
+    @Autowired
+    private WebDriver driver;
 
     @FindBy(css = "input[formcontrolname='name']")
     private WebElement name;
@@ -42,7 +55,7 @@ public class RealizarPedidoPage {
     @FindBy(css = "input[formcontrolname='searchControl']")
     private WebElement campoProcurar;
 
-    @FindBy(css = "div[class='place-info-box']")
+    @FindBy(css = "body > mt-app > div > div > div > mt-restaurants > section.content > div > div > mt-restaurant > a > div")
     private WebElement listaRestaurante;
 
     @FindBy(css = "i[class='fa fa-plus-circle']")
@@ -105,6 +118,11 @@ public class RealizarPedidoPage {
     @FindBy (css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(5) > div:nth-child(2) > mt-delivery-costs > div > table > tbody > tr:nth-child(2) > td")
     private WebElement frete;
 
+    @Autowired
+    private WebDriverWait wait;
+
+
+
     public WebElement getFecharPedido() {return fecharPedido;}
 
     public WebElement getTotal() {return total;}
@@ -135,10 +153,6 @@ public class RealizarPedidoPage {
 
     public List<WebElement> getMenu() {return menu;}
 
-    public WebElement verRestaurantes() {
-        return verRestaurantes;
-    }
-
     public WebElement getCampoObrigatorioMsg(){ return campoObrigatorioMsg;}
 
     public WebElement getName(){return name;}
@@ -148,8 +162,6 @@ public class RealizarPedidoPage {
     public WebElement getMensagemSistema() {return mensagemSistema;}
 
     public WebElement getMensagemSistema2() {return mensagemSistema2;}
-
-    public WebElement getBtnProcurar() {return btnProcurar;}
 
     public WebElement getCampoProcurar() {return campoProcurar;}
 
@@ -161,10 +173,25 @@ public class RealizarPedidoPage {
 
     public WebElement getAdicionarProduto3() {return adicionarProduto3;}
 
-    public void fecharPedido() throws InterruptedException {
+    public void restaurante() throws InterruptedException{
         verRestaurantes.click();
+    }
+
+    public void btnProcurar() throws InterruptedException{
         btnProcurar.click();
         campoProcurar.sendKeys("House");
+    }
+
+    public void aguardarElemento(WebElement elemento) throws InterruptedException{
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(elemento));
+        element.click();
+    }
+
+
+
+    public void fecharPedido() throws InterruptedException {
+        verRestaurantes.click();
+        btnProcurar();
         Thread.sleep(2000);
         listaRestaurante.click();
         Thread.sleep(2000);
