@@ -118,6 +118,9 @@ public class RealizarPedidoPage {
     @FindBy (css = "body > mt-app > div > div > div > mt-order > section.content > section > form > div:nth-child(5) > div:nth-child(2) > mt-delivery-costs > div > table > tbody > tr:nth-child(2) > td")
     private WebElement frete;
 
+    @FindBy (css = "body > mt-app > div > div > div > mt-restaurants > section.content > div > div:nth-child(2)")
+    private  WebElement restauranteSelecionado;
+
     @Autowired
     private WebDriverWait wait;
 
@@ -173,6 +176,8 @@ public class RealizarPedidoPage {
 
     public WebElement getAdicionarProduto3() {return adicionarProduto3;}
 
+    public WebElement getRestauranteSelecionado() {return restauranteSelecionado;}
+
     public void restaurante() throws InterruptedException{
         verRestaurantes.click();
     }
@@ -180,6 +185,8 @@ public class RealizarPedidoPage {
     public void btnProcurar() throws InterruptedException{
         btnProcurar.click();
         campoProcurar.sendKeys("House");
+        btnProcurar.click();
+        btnProcurar.click();
     }
 
     public void aguardarElemento(WebElement elemento) throws InterruptedException{

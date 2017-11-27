@@ -47,7 +47,7 @@ public class RealizarPedidosSteps {
     }
 
     @Então("^o pedido do usuário é concluido$")
-    public void o_pedido_do_usuário_é_concluido() throws Throwable {
+    public void o_pedido_do_usuário_e_concluido() throws Throwable {
                  given()
                 .contentType(ContentType.JSON)
                 .when()
@@ -117,7 +117,7 @@ public class RealizarPedidosSteps {
     public void campo_Subtotal_recebe_o_valor_unitario_do_produto_multiplicado_pela_quantidade_Subtotal_Valor_Unitario_Quantidade() throws Throwable {
             float dividir;
         for (WebElement element : page.getSubTotal()) {
-            Thread.sleep(2000);
+            page.aguardarElemento(element);
             WebElement subTotal = element.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4)"));
             String elementoSubtotal = subTotal.getText();
             String replaceStringSubtotal = elementoSubtotal.replace("R$","");
@@ -141,7 +141,7 @@ public class RealizarPedidosSteps {
     @Então("^todos valores devem conter R\\$$")
     public void todosValoresDevemConterR$() throws Throwable {
         for (WebElement element : page.getSubTotal()) {
-            Thread.sleep(2000);
+            page.aguardarElemento(element);
             WebElement subTotal = element.findElement(By.cssSelector("table > tbody > tr:nth-child(1) > td:nth-child(4)"));
             String elementoSubtotal = subTotal.getText();
             String elementoFrete = page.getFrete().getText();

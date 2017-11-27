@@ -6,7 +6,6 @@ Funcionalidade: Realizar Pedido
     Para que possa ser entregue no endereço desejado e seja pago na forma de pagamento de minha escolha.
 
     @WEB
-    @wip
     Esquema do Cenário: Forma de pagamento
         Dado que o usuário realizou seu pedido
         Quando o usuário preenche todos os campos obrigatórios

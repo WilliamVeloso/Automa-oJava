@@ -14,12 +14,12 @@ import static config.WebDriverWrapper.getWebDriver;
         glue = {"stepDefinitions" },
         features = "src/test/java/features",
         snippets = SnippetType.CAMELCASE,
-        strict = true,
-        tags = "@wip")
+        strict = true)
+        //tags = "@wip")
 public class RunCukesTest {
     @AfterClass
     public static void destruirWebDriver() {
-        //getWebDriver().close();
-        //getWebDriver().quit();
+        getWebDriver().close();
+        getWebDriver().quit();
     }
 }
