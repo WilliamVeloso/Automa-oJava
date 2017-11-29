@@ -29,7 +29,6 @@ Funcionalidade: Pesquisar Restaurante
     @WEB
     Cenario: Cardápio itens forma de lista
       Dado que o usuario esteja na pagina do restaurante desejado
-      Quando verifica que existe mais de um item
       Então os itens devem ser exibidos em forma de lista
 
     @WEB

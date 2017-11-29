@@ -1,15 +1,16 @@
 package stepDefinitions;
 
 
-import config.WaitMeWebElementHandler;
+import config.ScreenShot;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.ScreenshotException;
 import org.springframework.beans.factory.annotation.Autowired;
 import pageObjects.RealizarPedidoPage;
 import java.util.List;
@@ -21,9 +22,6 @@ public class PesquisarRestaurantesSteps {
 
     @Autowired
     private RealizarPedidoPage page;
-
-
-
 
     @Dado("^que o usuário esteja na pagina de todos os restaurantes$")
     public void queOUsuarioEstejaNaPaginaDeTodosOsRestaurantes() throws Throwable {
@@ -40,6 +38,9 @@ public class PesquisarRestaurantesSteps {
     @Então("^o restaurante pesquisado é exibido$")
     public void oRestaurantePesquisadoEExibido() throws Throwable {
         page.aguardarElemento(page.getRestauranteSelecionado());
+        System.out.println(page.getRestauranteSelecionado());
+
+
 
     }
 
@@ -99,21 +100,11 @@ public class PesquisarRestaurantesSteps {
 
     }
 
-    @Quando("^verifica que existe mais de um item$")
-    public void verificaQueExisteMaisDeUmItem() throws Throwable {
+    @Então("^os itens devem ser exibidos em forma de lista$")
+    public void osItensDevemSerExibidosEmFormaDeLista() throws Throwable {
         List elements = page.getMenu();
         System.out.println("Quantidade de itens é:\n"+elements.size());
         assertTrue(elements.size()>1);
-
-    }
-
-    @Então("^os itens devem ser exibidos em forma de lista$")
-    public void osItensDevemSerExibidosEmFormaDeLista() throws Throwable {
-        for (WebElement element : page.getMenu()) {
-            page.aguardarElemento(element);
-            System.out.println(element);
-        }
-            System.out.println("Itens exibidos em forma de lista");
     }
 
     @Então("^o usuário verifica o alinhamento da imagem a esquerda$")
